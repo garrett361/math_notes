@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+%Importing custom commands
+\usepackage{latex_goon/latex_goon}
+\title{Linear Algebra}
+\author{Garrett Goon}
+\begin{document}
+%
+%\maketitle
+
+\vspace{1truecm}
+%
+%
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\begin{center}
+{\huge \bf{Linear Algebra}}
+\end{center}
+
+
+\begin{abstract}
+
+Notes on various linear algebra topics that I've forgotten or never knew.
+
+\end{abstract}
+
+\tableofcontents
+
+
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+\section{The Moore-Penrose Pseudoinverse \label{sec_mp_pseudoinverse}}
+
+A general matrix $ M \in \mathbb{R} ^{ m\times n } $ will not have an inverse, but it is guaranteed to have a next-best-thing which is
+also unique: the \textbf{Moore-Penrose Pseudoinverse} \footnote{Some concise notes on the properties
+of this matrix\href{https://www.math.ucla.edu/~laub/33a.2.12s/mppseudoinverse.pdf}{can be found
+here}.} , denoted by $ M ^{ + } \in \mathbb{R}^{
+n\times m } $.  Obviously, it
+cannot satisfy $ M M ^{ + } = \mathbf{1} $ in general (since the identity doesn't even exist for the
+general $ n \neq m $ case we have in mind). However, it satisfies the closest analogues\footnote{These properties do not imply one another.} :
+\begin{align}
+  M ^{ + }M M ^{ + } &= M ^{ + } \nn
+  M M ^{ + } M  &= M  \nn
+  (M M ^{ + }) ^{ T } &= M M ^{ + } \nn
+   (M ^{ + } M ) ^{ T } &= M ^{ + }M \ . \label{eq_mp_pseudoinverse}
+\end{align}
+
+
+In the limit where the columns are linearly-independent (such that $ M M ^{ T } $ is invertible), the MP
+inverse has the explicit form $ M ^{ + } (M M ^{ T })^{ -1 } $. Similarly, if the rows are
+linearly-independent (such that $ M ^{ T } M  $ is invertible), then $ M ^{ + } = (M ^{ T }M) ^{ -1
+}  M ^{ T }$. By uniqueness (not proven here), $ M ^{ + } $ reduces to $ M ^{ -1 } $, when it
+exists.
+
+
+If solutions $ x $ of linear equations of the form $ M \cdot x = b $ exist, they can be written in terms of the
+psueduoinverse:
+\begin{align}
+    x &= M ^{ +}b + M \left ( \mathbf{1} - M ^{ + }M \right )y \ , \quad y \ \mathrm{arbitrary}
+\end{align}
+which generalizes the form of the solution when $ M $ is invertible. Demonstrating that the above
+solves the desired equation follows from the properties in \eqref{eq_mp_pseudoinverse}, and an
+additional result that $   MM ^{ + }b = b$ necessarily holds if any solutions exist \footnote{Proof:
+obviously for solutions to exist, $ b $ must live in the range of $ M $. When this is true, there is
+a $ v $ for which $ Mv=b $. Then, from \eqref{eq_mp_pseudoinverse}, $b= Mv=M M ^{ + } M v= M M ^{ +
+}b $.}.
+
+\appendix
+
+
+\section{Conventions and Notation}\label{app_conventions}
+
+
+
+ \section{TODO}
+
+
+ \begin{itemize}
+ \item
+ \end{itemize}
+
+\bibliographystyle{latex_goon/utphys}
+\bibliography{bibliography}
+\end{document}

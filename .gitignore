@@ -1,0 +1,81 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# All log files
+*.log
+*.logs
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# dotenv
+.env
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+# mypy
+.mypy_cache/
+
+# All Python wheels
+*.whl
+
+# Node modules
+node_modules/
+
+# VSCode
+.vscode/
+
+# JetBrains IDEs (e.g., PyCharm and GoLand)
+.idea/
+
+# MacOS system files
+*.DS_Store
+.dccache
+
+# latex
+*-tikzDictionary
+*.aux
+*.bcf
+*.blg
+*.brf
+*.cb
+*.cb2
+*.fdb_latexmk
+*.fls
+*.fmt
+*.fot
+*.lb
+*.lof
+*.lot
+*.out
+*.pdfsync
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.toc
+*.bbl
+_minted*
